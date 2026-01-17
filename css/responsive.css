@@ -1,0 +1,122 @@
+/* =====================================================
+   TABLET & BELOW (≤ 768px)
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- NAV ---------- */
+  .nav-inner {
+    padding: 20px 24px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-full {
+    display: none;
+  }
+
+  .logo-short {
+    display: inline;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 0 24px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section {
+    padding: 120px 24px;
+  }
+
+  /* ---------- WORK SLIDER ---------- */
+  .work-track {
+    max-width: 100%;
+  }
+
+  .work-slide {
+    padding: 28px;
+  }
+}
+
+
+/* =====================================================
+   SMALL PHONES (≤ 480px)
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+
+/* =====================================================
+   ABOUT SECTION — STACKING (≤ 900px)
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-visual {
+    order: -1; /* image first on mobile */
+  }
+
+  .about-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-glow::before {
+    inset: -16px;
+    filter: blur(12px);
+    opacity: 0.65;
+  }
+}
+
+
+/* =====================================================
+   TOUCH DEVICES (NO HOVER)
+===================================================== */
+
+@media (hover: none) {
+
+  .about-glow:hover::before {
+    opacity: 0.85;
+    filter: blur(18px);
+    inset: -24px;
+  }
+}
+
+
+/* Zigram logo */
+@media (max-width: 600px) {
+  .work-title-row {
+    gap: 12px;
+  }
+
+  .work-logo {
+    height: 22px;
+    opacity: 0.15;
+  }
+}

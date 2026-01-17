@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prakhar Rai — Creative Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+ 
+
+  <!-- Your JS -->
+  <script src="js/animations.js"></script>
+
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+ <header class="nav">
+  <div class="nav-inner">
+
+    <div class="logo-wrap">
+      <span class="nav-avatar">
+        <img src="images/me.webp" alt="Prakhar Rai">
+      </span>
+      <span class="logo-text logo-full">Prakhar Rai</span>
+      <span class="logo-text logo-short">PR</span>
+    </div>
+
+    <!-- DESKTOP LINKS -->
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- MOBILE TOGGLE -->
+    <button class="nav-toggle" aria-label="Open menu">
+      ☰
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <nav class="nav-mobile">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-backdrop"></div>
+
+</header>
+
+
+  <!-- HERO -->
+<section class="hero">
+  <div class="parallax">
+
+    <div class="parallax-layer back"
+         style="background-image: url('images/hero/bg-back.webp')"></div>
+
+    <div class="parallax-layer mid"
+         style="background-image: url('images/hero/bg-mid.webp')"></div>
+
+    <div class="parallax-layer front"
+         style="background-image: url('images/hero/bg-front.webp')"></div>
+    
+    <div class="parallax-grain"></div>
+
+
+  </div>
+
+  <!-- HERO CONTENT -->
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>
+        Hello, I’m <span>Prakhar</span>
+      </h1>
+      <p>
+        I am a <strong>Software Engineer</strong> who designs and builds
+        digital experiences.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+    <!-- ABOUT -->
+  <section id="about" class="section section-parallax about-section">
+  <div class="section-bg"
+       style="background-image: url('images/sections/about-bg.webp')"></div>
+
+  <div class="container about-grid">
+
+    <!-- TEXT -->
+    <div class="about-text">
+      <h2>About</h2>
+
+      <p class="about-intro">
+        I am a result-driven <strong>Software Engineer</strong> with strong hands-on experience in
+        <strong>Python development</strong>, backend engineering, and automation.
+        I focus on building efficient, scalable, and production-ready systems, and I enjoy
+        solving complex problems through clean architecture and optimized code.
+      </p>
+
+      <ul class="about-points">
+        <li>Proficient in Python with experience in backend APIs, automation, and data pipelines</li>
+        <li>Hands-on experience with FastAPI, building scalable and high-performance backend services</li>
+        <li>Strong database experience with PostgreSQL and SQLAlchemy</li>
+        <li>Experienced in designing efficient data pipelines and automation scripts</li>
+        <li>Collaborative team player with experience in cross-functional engineering teams</li>
+        <li>Currently focused on strengthening backend engineering skills and building high-performance systems</li>
+      </ul>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="about-visual">
+  <div class="about-glow">
+    <div class="about-image">
+      <img src="images/prakhar.webp" alt="Prakhar Rai">
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+
+    <!-- WORK -->
+<section id="work" class="section section-parallax work-section">
+  <div class="section-bg"
+       style="background-image: url('images/sections/work-bg.webp')"></div>
+
+  <div class="container work-center">
+    <h2>Work Experience</h2>
+    <div class="work-slider">
+
+  <!-- LEFT ARROW -->
+  <button class="work-arrow left" aria-label="Previous">
+    ←
+  </button>
+
+  <!-- VIEWPORT (CLIPS SLIDES) -->
+  <div class="work-viewport">
+    <div class="work-track">
+
+      <article class="work-slide"  data-tint="mint">
+        <header class="work-header">
+            <div class="work-title-row">
+              <h3>Software Engineer</h3>
+              <img
+                class="work-logo"
+                src="images/logos/zigram.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+          <span class="work-company">Zigram</span>
+          <span class="work-meta">Sep 2023 – Jan 2024 · Remote</span>
+        </header>
+
+        <p class="work-summary">
+          Backend-focused software engineer specializing in Python automation,
+          large-scale web scraping, and API-driven data services.
+        </p>
+
+        <ul class="work-points">
+          <li>Designed and maintained 20+ Python automation pipelines, reducing data collection time by 40%</li>
+          <li>Built resilient scrapers for 50+ sources using Selenium & BeautifulSoup</li>
+          <li>Exposed workflows via FastAPI microservices for real-time access</li>
+          <li>Improved reliability with structured logging and modular design</li>
+        </ul>
+      </article>
+
+      <article class="work-slide"  data-tint="violet">
+        <header class="work-header">
+          <div class="work-title-row">
+              <h3>Technology Intern</h3>
+              <img
+                class="work-logo"
+                src="images/logos/zigram.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+          <span class="work-company">Zigram</span>
+          <span class="work-meta">Jan 2023 – Jul 2023 · Remote</span>
+        </header>
+
+        <p class="work-summary">
+          Backend and automation intern with hands-on experience in Python scripting,
+          data pipelines, and collaborative development.
+        </p>
+
+        <ul class="work-points">
+          <li>Built Python scripts for automation and backend data processing</li>
+          <li>Processed datasets using Pandas for downstream systems</li>
+          <li>Collaborated using Git/GitHub and code reviews</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- RIGHT ARROW -->
+  <button class="work-arrow right" aria-label="Next">
+    →
+  </button>
+
+</div>
+<!-- PROGRESS INDICATOR -->
+<div class="work-progress">
+  <span class="current">1</span>
+  <span class="separator">/</span>
+  <span class="total">2</span>
+</div>
+
+  </div>
+</section>
+
+
+
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Let’s Connect</h2>
+
+        <div class="contact-box">
+          <p>
+            Have a project in mind or just want to connect?
+            Let’s build something meaningful.
+          </p>
+          <a href="mailto:prakharrai300@gmail.com" class="button">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Prakhar Rai
+  </footer>
+
+</body>
+</html>

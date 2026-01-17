@@ -1,0 +1,19 @@
+:root {
+  --bg-main: #0b0d10;
+  --bg-soft: #141821;
+
+  --text-main: #e6e6eb;
+  --text-muted: #9ca3af;
+
+  --accent: #6cf2c2;
+
+  --border-soft: rgba(255,255,255,0.08);
+
+  --max-width: 1200px;
+/* ---------- WORK EXPERIENCE TINTS ---------- */
+  --tint-mint: rgba(108, 242, 194, 0.12);
+  --tint-blue: rgba(120, 160, 255, 0.12);
+  --tint-violet: rgba(180, 140, 255, 0.12);
+  --tint-red: rgba(255, 90, 90, 0.12);
+  --tint-orange: rgba(255, 165, 90, 0.12);
+}
