@@ -278,7 +278,7 @@ gsap.from(".about-image", {
 //   });
 // });
 
-/* ---------------- WORK SLIDER + PROGRESS + TINT ---------------- */
+//* ================= WORK SLIDER (DESKTOP + MOBILE FIXED) ================= */
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".work-track");
   const slides = document.querySelectorAll(".work-slide");
@@ -289,36 +289,74 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentEl = document.querySelector(".work-progress .current");
   const totalEl = document.querySelector(".work-progress .total");
 
-  if (!track || !slides.length || !next || !prev || !section) return;
+  if (!track || !slides.length) return;
 
   let index = 0;
 
   if (totalEl) totalEl.textContent = slides.length;
 
+  const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
+
+  /* ---------- TINT ---------- */
   const applyTint = () => {
-    const tintName = slides[index].dataset.tint;
+    if (!section) return;
+    const tint = slides[index].dataset.tint;
     section.style.setProperty(
       "--work-tint",
-      tintName ? `var(--tint-${tintName})` : "transparent"
+      tint ? `var(--tint-${tint})` : "transparent"
     );
   };
 
+  /* ---------- UPDATE ---------- */
   const update = () => {
     track.style.transform = `translateX(-${index * 100}%)`;
     if (currentEl) currentEl.textContent = index + 1;
     applyTint();
   };
 
-  // initial tint
-  applyTint();
+  // Initial state
+  update();
 
-  next.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    update();
+  /* ================= DESKTOP ARROWS ================= */
+  if (next && prev) {
+    next.addEventListener("click", () => {
+      if (isMobile()) return; // prevent desktop logic on mobile
+      index = (index + 1) % slides.length;
+      update();
+    });
+
+    prev.addEventListener("click", () => {
+      if (isMobile()) return;
+      index = (index - 1 + slides.length) % slides.length;
+      update();
+    });
+  }
+
+  /* ================= MOBILE SWIPE ================= */
+  let startX = 0;
+  let deltaX = 0;
+
+  track.addEventListener("touchstart", (e) => {
+    if (!isMobile()) return;
+    startX = e.touches[0].clientX;
   });
 
-  prev.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
-    update();
+  track.addEventListener("touchmove", (e) => {
+    if (!isMobile()) return;
+    deltaX = e.touches[0].clientX - startX;
+  });
+
+  track.addEventListener("touchend", () => {
+    if (!isMobile()) return;
+
+    if (Math.abs(deltaX) > 60) {
+      if (deltaX < 0 && index < slides.length - 1) {
+        index++;
+      } else if (deltaX > 0 && index > 0) {
+        index--;
+      }
+      update();
+    }
+    deltaX = 0;
   });
 });

@@ -71,7 +71,7 @@
    ABOUT SECTION — STACKING (≤ 900px)
 ===================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
   .about-grid {
     grid-template-columns: 1fr;
@@ -92,6 +92,20 @@
     filter: blur(12px);
     opacity: 0.65;
   }
+}
+
+/* ---------- ABOUT IMAGE CENTER (MOBILE) ---------- */
+@media (max-width: 768px) {
+
+  .about-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-glow {
+    margin: 0 auto;
+  }
+
 }
 
 
@@ -118,5 +132,50 @@
   .work-logo {
     height: 22px;
     opacity: 0.15;
+  }
+}
+/* ================= MOBILE WORK: SWIPE SLIDER ================= */
+@media (max-width: 768px) {
+
+  .work-slider {
+    display: block;
+  }
+
+  /* hide arrows on mobile */
+  .work-arrow {
+    display: none;
+  }
+
+  /* viewport clips swipe */
+  .work-viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  /* horizontal track again */
+  .work-track {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    touch-action: pan-y; /* allow vertical scroll */
+  }
+
+  .work-slide {
+    min-width: 100%;
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  /* disable hover lift on touch */
+  .work-slide:hover {
+    transform: none;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  }
+
+  /* hide progress indicator */
+  .work-progress {
+    display: none;
   }
 }
