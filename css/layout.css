@@ -628,3 +628,51 @@
 .work-slide:hover .work-logo {
   opacity: 0.58;
 }
+
+/* ---------- WORK SLIDE DOTS (ALL DEVICES) ---------- */
+.work-dots {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.work-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: 0.4;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.work-dot.active {
+  opacity: 1;
+  transform: scale(1.4);
+  background: var(--text-main);
+}
+
+/* ---------- WORK SLIDER WRAPPER ---------- */
+.work-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* slider stays centered */
+.work-slider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* dots always centered under slider */
+.work-dots {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

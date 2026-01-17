@@ -179,3 +179,15 @@
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+
+  .work-slider-wrapper {
+    align-items: center;
+  }
+
+  .work-dots {
+    margin-top: 16px;
+  }
+
+}

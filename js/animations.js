@@ -1,13 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// const prefersReducedMotion = window.matchMedia(
-//   "(prefers-reduced-motion: reduce)"
-// ).matches;
-
-// if (prefersReducedMotion) {
-//   gsap.globalTimeline.timeScale(0);
-// }
-
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
@@ -133,19 +125,6 @@ gsap.utils.toArray(".section").forEach((section) => {
 });
 
 
-
-// /* ---------------- MOBILE NAV TOGGLE ---------------- */
-// document.addEventListener("DOMContentLoaded", () => {
-//   const toggle = document.querySelector(".nav-toggle");
-//   const mobileNav = document.querySelector(".nav-mobile");
-
-//   if (!toggle || !mobileNav) return;
-
-//   toggle.addEventListener("click", () => {
-//     mobileNav.classList.toggle("active");
-//   });
-// });
-
 /* ---------------- MOBILE NAV (GSAP + BACKDROP) ---------------- */
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".nav-toggle");
@@ -244,56 +223,33 @@ gsap.from(".about-image", {
   ease: "power3.out"
 });
 
-// --------------------- Work Experience slider -----------------
-// /* ---------------- WORK SLIDER + PROGRESS ---------------- */
-// document.addEventListener("DOMContentLoaded", () => {
-//   const track = document.querySelector(".work-track");
-//   const slides = document.querySelectorAll(".work-slide");
-//   const next = document.querySelector(".work-arrow.right");
-//   const prev = document.querySelector(".work-arrow.left");
-
-//   const currentEl = document.querySelector(".work-progress .current");
-//   const totalEl = document.querySelector(".work-progress .total");
-
-//   if (!track || !slides.length || !next || !prev) return;
-
-//   let index = 0;
-
-//   // Set total count
-//   if (totalEl) totalEl.textContent = slides.length;
-
-//   const update = () => {
-//     track.style.transform = `translateX(-${index * 100}%)`;
-//     if (currentEl) currentEl.textContent = index + 1;
-//   };
-
-//   next.addEventListener("click", () => {
-//     index = (index + 1) % slides.length;
-//     update();
-//   });
-
-//   prev.addEventListener("click", () => {
-//     index = (index - 1 + slides.length) % slides.length;
-//     update();
-//   });
-// });
 
 //* ================= WORK SLIDER (DESKTOP + MOBILE FIXED) ================= */
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".work-track");
   const slides = document.querySelectorAll(".work-slide");
+  const dotsContainer = document.querySelector(".work-dots");
   const next = document.querySelector(".work-arrow.right");
   const prev = document.querySelector(".work-arrow.left");
   const section = document.querySelector(".work-section");
 
-  const currentEl = document.querySelector(".work-progress .current");
-  const totalEl = document.querySelector(".work-progress .total");
-
   if (!track || !slides.length) return;
 
   let index = 0;
+  let dots = [];
 
-  if (totalEl) totalEl.textContent = slides.length;
+  // Create dots (mobile only)
+  if (dotsContainer) {
+    dotsContainer.innerHTML = "";
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("work-dot");
+      if (i === 0) dot.classList.add("active");
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
+  }
+
 
   const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 
@@ -310,8 +266,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- UPDATE ---------- */
   const update = () => {
     track.style.transform = `translateX(-${index * 100}%)`;
-    if (currentEl) currentEl.textContent = index + 1;
     applyTint();
+      if (dots.length) {
+      dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+      });
+    }
+
   };
 
   // Initial state
