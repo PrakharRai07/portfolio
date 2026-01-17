@@ -278,11 +278,7 @@ gsap.from(".about-image", {
 //   });
 // });
 
-<<<<<<< HEAD
 //* ================= WORK SLIDER (DESKTOP + MOBILE FIXED) ================= */
-=======
-/* ---------------- WORK SLIDER + PROGRESS + TINT ---------------- */
->>>>>>> 454ccc2871e5658586d7bba94e97370052e7c86f
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".work-track");
   const slides = document.querySelectorAll(".work-slide");
@@ -293,17 +289,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentEl = document.querySelector(".work-progress .current");
   const totalEl = document.querySelector(".work-progress .total");
 
-<<<<<<< HEAD
   if (!track || !slides.length) return;
-=======
-  if (!track || !slides.length || !next || !prev || !section) return;
->>>>>>> 454ccc2871e5658586d7bba94e97370052e7c86f
 
   let index = 0;
 
   if (totalEl) totalEl.textContent = slides.length;
 
-<<<<<<< HEAD
   const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 
   /* ---------- TINT ---------- */
@@ -317,23 +308,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /* ---------- UPDATE ---------- */
-=======
-  const applyTint = () => {
-    const tintName = slides[index].dataset.tint;
-    section.style.setProperty(
-      "--work-tint",
-      tintName ? `var(--tint-${tintName})` : "transparent"
-    );
-  };
-
->>>>>>> 454ccc2871e5658586d7bba94e97370052e7c86f
   const update = () => {
     track.style.transform = `translateX(-${index * 100}%)`;
     if (currentEl) currentEl.textContent = index + 1;
     applyTint();
   };
 
-<<<<<<< HEAD
   // Initial state
   update();
 
@@ -378,18 +358,5 @@ document.addEventListener("DOMContentLoaded", () => {
       update();
     }
     deltaX = 0;
-=======
-  // initial tint
-  applyTint();
-
-  next.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    update();
-  });
-
-  prev.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
-    update();
->>>>>>> 454ccc2871e5658586d7bba94e97370052e7c86f
   });
 });
